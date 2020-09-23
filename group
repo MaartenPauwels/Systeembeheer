@@ -54,3 +54,5 @@ systemd-timesync:x:114:
 uuidd:x:115:
 tcpdump:x:116:
 systemd-coredump:x:999:
+vivek:x:1000:
+check:x:1001:
