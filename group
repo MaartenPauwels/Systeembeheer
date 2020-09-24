@@ -18,7 +18,7 @@ voice:x:22:
 cdrom:x:24:
 floppy:x:25:
 tape:x:26:
-sudo:x:27:
+sudo:x:27:check
 audio:x:29:
 dip:x:30:
 www-data:x:33:
@@ -54,5 +54,4 @@ systemd-timesync:x:114:
 uuidd:x:115:
 tcpdump:x:116:
 systemd-coredump:x:999:
-vivek:x:1000:
-check:x:1001:
+check:x:1000:
