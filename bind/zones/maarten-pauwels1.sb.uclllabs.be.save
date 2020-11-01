@@ -1,0 +1,36 @@
+; BIND data file for maarten-pauwels1.sb.uclllabs.be.
+$TTL 144
+@ IN SOA ns.maarten-pauwels1.sb.uclllabs.be. admin.maarten-pauwels1.sb.uclllabs.be. (
+4 ; Serial
+5M ; Refresh
+5M ; Retry
+5M ; Expire
+5M ) ; Negative Cache TTL
+;
+
+Name servers
+@	IN	NS	ns.maarten-pauwels1.sb.uclllabs.be.
+@	IN	NS	ns1.uclllabs.be.
+@	IN	NS	ns2.uclllabs.be.
+
+subzone IN	NS	ns
+
+@	IN	CAA	0 iodef "mailto:maarten.pauwels1@student.ucll.be"
+@	IN	CAA	0 issue "letsencrypt.org"
+
+; A records for name serves
+ns	IN	A	193.191.177.179
+
+@ IN	MX	10 mx.maarten-pauwels1.sb.uclllabs.be.
+mx	IN	A	193.191.177.37
+mx	IN	AAAA 2001:6a8:2880:a022::179
+test	IN	AAAA	2001:6a8:2880:a022::179
+
+; Other A records
+@	IN	A	193.191.177.179
+@	IN	AAAA	2001:6a8:2880:a022::179
+www		CNAME	@
+secure		CNAME	@
+supersecure	CNAME	@
+imap		CNAME	@
+test A		193.191.177.254
