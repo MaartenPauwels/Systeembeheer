@@ -10,4 +10,7 @@ echo 300 \) \; Default TTL  >> /etc/bind/zones/$1
 echo \;  >> /etc/bind/zones/$1
 echo \;Name servers  >> /etc/bind/zones/$1
 echo @       IN      NS      ns.$1.  >> /etc/bind/zones/$1
-
+echo zone \"$1\" \{ >> /etc/bind/named.conf.local
+echo   type master\; >> /etc/bind/named.conf.local
+echo   file \"/etc/bind/zones/$1\"\; >> /etc/bind/named.conf.local
+echo \}\; >> /etc/bind/named.conf.local
