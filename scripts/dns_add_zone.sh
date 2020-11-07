@@ -1,16 +1,17 @@
 #! /bin/sh
-touch /etc/bind/zones/$1
-echo \$TTL 300 >> /etc/bind/zones/$1
-echo @ IN SOA ns.$1. host.$1. \( >> /etc/bind/zones/$1
-echo 22 \; Serial  >> /etc/bind/zones/$1
-echo 900 \; Refresh  >> /etc/bind/zones/$1
-echo 120 \; Retry  >> /etc/bind/zones/$1
-echo 900 \; Expire  >> /etc/bind/zones/$1
-echo 300 \) \; Default TTL  >> /etc/bind/zones/$1
-echo \;  >> /etc/bind/zones/$1
-echo \;Name servers  >> /etc/bind/zones/$1
-echo @       IN      NS      ns.$1.  >> /etc/bind/zones/$1
-echo zone \"$1\" \{ >> /etc/bind/named.conf.local
+dbname=db.$1.maarten-pauwels1.sb.uclllabs.be
+touch /etc/bind/zones/$dbname
+echo \$TTL 300 > /etc/bind/zones/$dbname
+echo @ IN SOA $1.maarten-pauwels1.sb.uclllabs.be. host.maarten-pauwels1.sb.uclllabs.be. \( >> /etc/bind/zones/$dbname
+echo 22 \; Serial  >> /etc/bind/zones/$dbname
+echo 900 \; Refresh  >> /etc/bind/zones/$dbname
+echo 120 \; Retry  >> /etc/bind/zones/$dbname
+echo 900 \; Expire  >> /etc/bind/zones/$dbname
+echo 300 \) \; Default TTL  >> /etc/bind/zones/$dbname
+echo \;  >> /etc/bind/zones/$dbname
+echo \;Name servers  >> /etc/bind/zones/$dbname
+echo @       IN      NS      ns.maarten-pauwels1.sb.uclllabs.be.  >> /etc/bind/zones/$dbname
+echo zone \"$dbname\" \{ >> /etc/bind/named.conf.local
 echo   type master\; >> /etc/bind/named.conf.local
-echo   file \"/etc/bind/zones/$1\"\; >> /etc/bind/named.conf.local
+echo   file \"/etc/bind/zones/$dbname\"\; >> /etc/bind/named.conf.local
 echo \}\; >> /etc/bind/named.conf.local
