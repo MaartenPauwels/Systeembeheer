@@ -11,6 +11,10 @@ echo 300 \) \; Default TTL  >> /etc/bind/zones/$dbname
 echo \;  >> /etc/bind/zones/$dbname
 echo \;Name servers  >> /etc/bind/zones/$dbname
 echo @       IN      NS      ns.maarten-pauwels1.sb.uclllabs.be.  >> /etc/bind/zones/$dbname
+echo "zone "maarten-pauwels1.sb.uclllabs.be" {
+  type master;
+  file "/etc/bind/zones/db.maarten-pauwels1.sb.uclllabs.be";
+};" > /etc/bind/named.conf.local
 echo zone \"$dbname\" \{ >> /etc/bind/named.conf.local
 echo   type master\; >> /etc/bind/named.conf.local
 echo   file \"/etc/bind/zones/$dbname\"\; >> /etc/bind/named.conf.local
