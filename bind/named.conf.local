@@ -1,9 +1,4 @@
-//
-// Do any local configuration here
-//
-//include "/etc/zones/maarten-pauwels1.sb.uclllabs.be";
-zone "maarten-pauwels1.sb.uclllabs.be" {
+zone maarten-pauwels1.sb.uclllabs.be {
   type master;
-  file "/etc/bind/zones/db.maarten-pauwels1.sb.uclllabs.be";
+  file /etc/bind/zones/db.maarten-pauwels1.sb.uclllabs.be;
 };
-
