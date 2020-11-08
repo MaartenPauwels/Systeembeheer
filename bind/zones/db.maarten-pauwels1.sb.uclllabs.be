@@ -8,17 +8,17 @@ $TTL 300
 ;
 
 ;Name servers
-@	IN	NS	ns.maarten-pauwels1.sb.uclllabs.be.
-@	IN	NS	ns1.uclllabs.be.
-@	IN	NS	ns2.uclllabs.be.
+@       IN      NS      ns.maarten-pauwels1.sb.uclllabs.be.
+@       IN      NS      ns1.uclllabs.be.
+@       IN      NS      ns2.uclllabs.be.
 
-subzone IN	NS	ns
+subzone IN      NS      ns
 
-@	IN	CAA	0 iodef "mailto:maarten.pauwels1@student.ucll.be"
-@	IN	CAA	0 issue "letsencrypt.org"
+@       IN      CAA     0 iodef "mailto:maarten.pauwels1@student.ucll.be"
+@       IN      CAA     0 issue "letsencrypt.org"
 
 ; adresses
-@	IN A 193.191.177.179
-ns	IN A 193.191.177.179
-www	IN A 193.191.177.179
-test	IN A 193.191.177.254
+@       IN A 193.191.177.179
+ns      IN A 193.191.177.179
+www     IN A 193.191.177.179
+test    IN A 193.191.177.254a
