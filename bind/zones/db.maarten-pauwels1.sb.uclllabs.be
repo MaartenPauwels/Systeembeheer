@@ -1,6 +1,8 @@
+; BIND data file for maarten-pauwels1.sb.uclllabs.be
+;
 $TTL 300
 @ IN SOA ns.maarten-pauwels1.sb.uclllabs.be. host.maarten-pauwels1.sb.uclllabs.be. (
-22 ; Serial
+26 ; Serial
 900 ; Refresh
 120 ; Retry
 900 ; Expire
@@ -21,4 +23,4 @@ subzone IN      NS      ns
 @       IN A 193.191.177.179
 ns      IN A 193.191.177.179
 www     IN A 193.191.177.179
-test    IN A 193.191.177.254a
+test    IN A 193.191.177.254
