@@ -2,7 +2,7 @@
 ;
 $TTL 300
 @ IN SOA ns.maarten-pauwels1.sb.uclllabs.be. host.maarten-pauwels1.sb.uclllabs.be. (
-26 ; Serial
+27 ; Serial
 900 ; Refresh
 120 ; Retry
 900 ; Expire
@@ -23,4 +23,6 @@ subzone IN      NS      ns
 @       IN A 193.191.177.179
 ns      IN A 193.191.177.179
 www     IN A 193.191.177.179
+www1	IN A 193.191.177.179
+www2	IN A 193.191.177.179
 test    IN A 193.191.177.254
