@@ -1,3 +1,33 @@
 #! /bin/sh
+if [ ! $(sudo echo 0) ]; then
+	echo "use sudo"
+	exit 1
+fi
+
+if [ $# -eq 0 ]; then
+	echo "You have to give an argument"
+	exit 1
+fi
+
+echo "zone \"$1.maarten-pauwels1.sb.uclllabs.be\" {
+	type master;
+	file \"/etc/bind/zones/db.$1.maarten-pauwels1.sb.uclllabs.be\";
+};" >> /etc/bind/named.conf.mrt-zones
+
+touch /etc/bind/zones/mrt-zones/db.$1.maarten-pauwels1.sb.uclllabs.be
 
 
+ID=$(cat /etc/bind/zones/db.maarten-pauwels1.sb.uclllabs.be | grep 'Serial' | grep -o '[0-9]*')
+
+echo "\$TTL 300
+@ IN SOA $1.maarten-pauwels1.sb.uclllabs.be. host.maarten-pauwels1.sb.uclllabs.be.
+	1 ; Serial
+	900 ; Refresh
+	120 ; Retry
+	900 ; Expire
+	300 ) ; Default TTL
+;
+; NAME SERVERS
+@	IN	NS ns.maarten-pauwels1.sb.uclllabs.be.
+" > /etc/bind/zones/mrt-zones/db.$1.maarten-pauwels1.sb.uclllabs.be
+sed -i "s/$ID/$(($ID + 1))/g" /etc/bind/zones/db.maarten-pauwels1.sb.uclllabs.be
