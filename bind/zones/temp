@@ -1,12 +1,12 @@
 ; BIND data file for maarten-pauwels1.sb.uclllabs.be
 ;
-$TTL 400
+$TTL 300
 @ IN SOA ns.maarten-pauwels1.sb.uclllabs.be. host.maarten-pauwels1.sb.uclllabs.be. (
-44 ; Serial
+27 ; Serial
 900 ; Refresh
 120 ; Retry
 900 ; Expire
-400 ) ; Default TTL
+300 ) ; Default TTL
 ;
 
 ;Name servers
