@@ -1,0 +1,31 @@
+#! /bin/bash
+PREFIX="`echo $1 | awk -F . '{print $1}'`"
+SUBDOMAIN="`echo $1 | awk -F . '{print $2}'`"
+echo "a"
+echo "$PREFIX"
+echo "b"
+echo "$SUBDOMAIN"
+ 
+GREP=$(grep "$PREFIX[[:space:]]*IN[[:space:]]*A" /etc/bind/zones/mrt-zones/db.$SUBDOMAIN.maarten-pauwels1.sb.uclllabs.be)
+if [ -z "$GREP" ];
+then
+echo "prefix or subdomain doesnt exit"
+else
+	mkdir /var/www/html/$PREFIX.$SUBDOMAIN
+	touch /var/www/html/$PREFIX.$SUBDOMAIN/index.html
+	echo "welcome $PREFIX.$SUBDOMAIN" > /var/www/html/$PREFIX.$SUBDOMAIN/index.html
+	
+	touch /etc/apache2/sites-available/$PREFIX.$SUBDOMAIN.conf
+	echo "<VirtualHost *:80>
+		ServerName $1
+		DocumentRoot /var/www/html/$PREFIX.$SUBDOMAIN.conf
+	
+		Loglevel info
+		ErrorLog "${APACHE_LOG_DIR}"/$PREFIX.$SUBDOMAIN-error.log
+		CustomLog "${APACHE_LOG_DR}"/$PREFIX.$SUBDOMAIN-access.log combined
+	</VirtualHost>" > /etc/apache2/sites-available/$PREFIX.$SUBDOMAIN.conf
+
+	a2ensite $PREFIX.$SUBDOMAIN.conf
+	
+	systemctl reload apache2
+fi
