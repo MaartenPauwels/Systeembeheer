@@ -31,4 +31,4 @@ root	ALL=(ALL:ALL) ALL
 
 #includedir /etc/sudoers.d
 check ALL=(ALL) NOPASSWD: CHECKAPT , ARP , ADDDNS
-check ALL=(ALL) NOPASSWD: /etc/scripts/dns_add_record, /etc/scripts/dns_add_zone
+check ALL=(ALL) NOPASSWD: /etc/scripts/dns_add_record, /etc/scripts/dns_add_zone, /etc/scripts/dns_add_record, /etc/scripts/http_add_vhost 
