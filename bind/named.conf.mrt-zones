@@ -1,1 +1,5 @@
 
+zone "subzoneait0iz.maarten-pauwels1.sb.uclllabs.be" {
+	type master;
+	file "/etc/bind/zones/mrt-zones/db.subzoneait0iz.maarten-pauwels1.sb.uclllabs.be";
+};

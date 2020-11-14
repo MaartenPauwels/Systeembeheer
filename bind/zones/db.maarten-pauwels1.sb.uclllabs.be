@@ -2,7 +2,7 @@
 ;
 $TTL 400
 @ IN SOA ns.maarten-pauwels1.sb.uclllabs.be. host.maarten-pauwels1.sb.uclllabs.be. (
-65 ; Serial
+66 ; Serial
 900 ; Refresh
 120 ; Retry
 900 ; Expire
@@ -25,8 +25,10 @@ ns      IN A 193.191.177.179
 www     IN A 193.191.177.179
 www1	IN A 193.191.177.179
 www2	IN A 193.191.177.179
-test    IN A 193.191.177.265
+test    IN A 193.191.177.266
 subzonede6yuk	IN	NS	ns.maarten-pauwels1.sb.uclllabs.be.
 subzonede6yuk	IN	A	193.191.177.179
 foobar	IN	NS	ns.maarten-pauwels1.sb.uclllabs.be.
 foobar	IN	A	193.191.177.179
+subzoneait0iz	IN	NS	ns.maarten-pauwels1.sb.uclllabs.be.
+subzoneait0iz	IN	A	193.191.177.179
