@@ -20,7 +20,7 @@ touch /etc/bind/zones/mrt-zones/db.$1.maarten-pauwels1.sb.uclllabs.be
 ID=$(echo | cat /etc/bind/zones/db.maarten-pauwels1.sb.uclllabs.be | grep 'Serial' | grep -o '[0-9]*')
 
 echo "\$TTL 300
-@ IN SOA ns.$1.maarten-pauwels1.sb.uclllabs.be. host.maarten-pauwels1.sb.uclllabs.be.
+@ IN SOA ns.$1.maarten-pauwels1.sb.uclllabs.be. host.maarten-pauwels1.sb.uclllabs.be. (
 	1 ; Serial
 	900 ; Refresh
 	120 ; Retry
