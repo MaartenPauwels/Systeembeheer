@@ -1,1 +1,4 @@
 mrt/
+bind/named.conf.mrt-zones
+bind/zones/mrt-zones/
+incron.d/etc.conf
