@@ -1,4 +1,4 @@
-//include /etc/zones/maarten-pauwels1.sb.uclllabs.be;
+include "/etc/bind/named.conf.mrt-zones";
 zone "maarten-pauwels1.sb.uclllabs.be" {
   type master;
   file "/etc/bind/zones/db.maarten-pauwels1.sb.uclllabs.be";
