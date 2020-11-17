@@ -16,9 +16,6 @@ echo "zone \"$1.maarten-pauwels1.sb.uclllabs.be\" {
 
 touch /etc/bind/zones/mrt-zones/db.$1.maarten-pauwels1.sb.uclllabs.be
 
-
-ID=$(echo | cat /etc/bind/zones/db.maarten-pauwels1.sb.uclllabs.be | grep 'Serial' | grep -o '[0-9]*')
-
 echo "\$TTL 300
 @ IN SOA ns.$1.maarten-pauwels1.sb.uclllabs.be. host.maarten-pauwels1.sb.uclllabs.be. (
 	1 ; Serial
@@ -32,6 +29,7 @@ echo "\$TTL 300
 
 echo "$1	IN	NS	ns.maarten-pauwels1.sb.uclllabs.be." >> /etc/bind/zones/db.maarten-pauwels1.sb.uclllabs.be
 echo "$1	IN	A	193.191.177.179" >> /etc/bind/zones/db.maarten-pauwels1.sb.uclllabs.be
+ID=$(echo | cat /etc/bind/zones/db.maarten-pauwels1.sb.uclllabs.be | grep 'Serial' | grep -o '[0-9]*')
 
 sed -i "s/$ID/$(($ID + 1))/g" /etc/bind/zones/db.maarten-pauwels1.sb.uclllabs.be
 #reload

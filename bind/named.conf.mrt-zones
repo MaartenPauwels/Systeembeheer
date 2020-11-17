@@ -1,1 +1,13 @@
 
+zone "subzonedaes8u.maarten-pauwels1.sb.uclllabs.be" {
+	type master;
+	file "/etc/bind/zones/mrt-zones/db.subzonedaes8u.maarten-pauwels1.sb.uclllabs.be";
+};
+zone "foobar.maarten-pauwels1.sb.uclllabs.be" {
+	type master;
+	file "/etc/bind/zones/mrt-zones/db.foobar.maarten-pauwels1.sb.uclllabs.be";
+};
+zone "subzonekagh9a.maarten-pauwels1.sb.uclllabs.be" {
+	type master;
+	file "/etc/bind/zones/mrt-zones/db.subzonekagh9a.maarten-pauwels1.sb.uclllabs.be";
+};

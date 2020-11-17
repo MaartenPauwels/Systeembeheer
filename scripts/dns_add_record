@@ -7,23 +7,23 @@ if [ "$1" == "-t" ];then
                 esac
         done
         if [ "$TYPE" == "MX" ]; then
-                ZONE="echo $5"
+                ZONE="`echo $5`"
                 echo "@         IN      MX      $3.$5" >> /etc/bind/zones/mrt-zones/db.$ZONE
                 echo "$3        IN      A       $4" >> /etc/bind/zones/mrt-zones/db.$ZONE
                 perl -i -pe '/Serial/ && s/(\d+)/$1+1 . $2/e' /etc/bind/zones/mrt-zones/db.$ZONE
         elif [ "$TYPE" == "CNAME" ]
         then
-                ZONE="echo $4"
+                ZONE="`echo $4`"
                 echo "$3        IN      CNAME   $4" >> /etc/bind/zones/mrt-zones/db.$ZONE
                 perl -i -pe '/Serial/ && s/(\d+)/$1+1 . $2/e' /etc/bind/zones/mrt-zones/db.$ZONE
         elif [ "$TYPE" == "A" ]
         then
-                ZONE="echo $5"
+                ZONE="`echo $5`"
                 echo "$3        IN      A       $4" >> /etc/bind/zones/mrt-zones/db.$ZONE
                 perl -i -pe '/Serial/ && s/(\d+)/$1+1 . $2/e' /etc/bind/zones/mrt-zones/db.$ZONE
         fi
 else
-        ZONE="echo $3"
+        ZONE="`echo $3`"
         echo "$1        IN      A       $2" >> /etc/bind/zones/mrt-zones/db.$ZONE
         perl -i -pe '/Serial/ && s/(\d+)/$1+1 . $2/e' /etc/bind/zones/mrt-zones/db.$ZONE
 fi
