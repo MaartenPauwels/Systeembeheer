@@ -18,7 +18,7 @@ else
 	touch /etc/apache2/sites-available/$PREFIX.$SUBDOMAIN.conf
 	echo "<VirtualHost *:80>
 		ServerName $1
-		DocumentRoot /var/www/html/$PREFIX.$SUBDOMAIN.conf
+		DocumentRoot /var/www/html/$PREFIX.$SUBDOMAIN
 	
 		Loglevel info
 		ErrorLog "${APACHE_LOG_DIR}"/$PREFIX.$SUBDOMAIN-error.log

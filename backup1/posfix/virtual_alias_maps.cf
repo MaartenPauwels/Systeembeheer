@@ -1,0 +1,7 @@
+user = postfix_user
+password = hunter2
+hosts = localhost
+dbname = postfix_db
+table = domains
+select_field = virtual
+where_field = domain

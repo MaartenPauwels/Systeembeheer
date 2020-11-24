@@ -1,0 +1,7 @@
+user = postfix_user
+password = hunter2
+hosts = localhost
+dbname = postfix_db
+table = users
+select_field = concat(domain,'/',email,'/')
+where_field = email

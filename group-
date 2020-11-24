@@ -44,8 +44,6 @@ ssl-cert:x:104:
 input:x:105:
 kvm:x:106:
 render:x:107:
-postfix:x:108:
-postdrop:x:109:
 ssh:x:110:
 systemd-journal:x:111:
 systemd-network:x:112:
@@ -58,3 +56,8 @@ check:x:1000:
 incron:x:117:
 ntp:x:118:
 bind:x:119:
+mysql:x:120:
+dovecot:x:121:
+dovenull:x:122:
+postfix:x:108:
+postdrop:x:109:

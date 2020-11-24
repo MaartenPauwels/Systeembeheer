@@ -1,0 +1,7 @@
+user = postfix_user
+password = hunter2
+hosts = localhost
+dbname = postfix_db
+table = forwardings
+select_field = destination
+where_field = source
