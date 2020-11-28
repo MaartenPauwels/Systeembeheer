@@ -2,7 +2,7 @@
 ;
 $TTL 400
 @ IN SOA ns.maarten-pauwels1.sb.uclllabs.be. host.maarten-pauwels1.sb.uclllabs.be. (
-		89 ; Serial
+		90 ; Serial
 		900 ; Refresh
 		120 ; Retry
 		900 ; Expire
@@ -14,6 +14,8 @@ $TTL 400
 @       IN      NS      ns1.uclllabs.be.
 @       IN      NS      ns2.uclllabs.be.
 @	IN	MX 10	mx.maarten-pauwels1.sb.uclllabs.be.
+@	IN	AAAA	2001:6a8:2880:a077::b3
+ns	IN	AAAA	2001:6a8:2880:a077::b3
 subzone IN      NS      ns
 
 @       IN      CAA     0 iodef "mailto:maarten.pauwels1@student.ucll.be"
@@ -25,6 +27,7 @@ www     IN A 193.191.177.179
 www1	IN A 193.191.177.179
 www2	IN A 193.191.177.179
 mx	IN A 193.191.177.179
+mx	IN AAAA	2001:6a8:2880:a077::b3
 test    IN A 193.191.177.254
 
 secure	IN	A	193.191.177.179 
