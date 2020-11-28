@@ -62,3 +62,4 @@ dovenull:x:122:
 postfix:x:108:
 postdrop:x:109:
 vmail:x:5000:
+ftp:x:123:
