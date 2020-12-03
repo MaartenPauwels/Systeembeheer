@@ -1,0 +1,21 @@
+---
+  - name: "Playing with Ansible and Git"
+    hosts: localhost
+    connection: local 
+    tasks:
+
+    - name: "update apache"      
+      shell: "add-apt-repository ppa:ondrej/apache2 -y ; apt update -y ; apt install apache2 -y"
+      register: "output"
+
+    - debug: var=output.stdout_lines
+    handlers:
+    - name: Reload Apache
+      service:
+        name: apache2
+        state: reloaded
+
+    - name: Restart Apache
+      service:
+        name: apache2
+        state: restarted
