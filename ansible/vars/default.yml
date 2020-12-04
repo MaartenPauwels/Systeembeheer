@@ -5,3 +5,5 @@ http_conf: "temp.conf"
 https_conf: "tempHTTPS.conf"
 http_port: "80"
 disable_default: true
+PREFIX: keeb4e
+SUBDOMAIN: subzonekagh9a
