@@ -1,0 +1,52 @@
+---
+  - name: "Playing with Ansible and Git"
+    hosts: localhost
+    connection: local
+    vars_files:
+        - vars/default.yml 
+    tasks:
+
+    - name: "grep"      
+      shell: "grep {{ PREFIX }}[[:space:]]*IN[[:space:]]*A /etc/bind/zones/mrt-zones/db.{{ SUBDOMAIN }}.maarten-pauwels1.sb.uclllabs.be"
+      register: "output"
+
+    - debug: var=output.stdout_lines
+
+    - name: Create document root
+      file:
+        path: "/var/www/html/{{ PREFIX }}.{{SUBDOMAIN }}"
+        state: directory
+        owner: "{{ app_user }}"
+        mode: '0755'
+
+    - name: Copy index test page
+      template:
+        src: "files/index.html.j2"
+        dest: "/var/www/html/{{ PREFIX }}.{{ SUBDOMAIN }}/index.html"
+     
+
+    - name: "echo"
+      shell: "echo welcome {{ PREFIX }}.{{ SUBDOMAIN }} > /var/www/html/{{ PREFIX }}.{{ SUBDOMAIN }}/index.html"
+      register: "output"
+
+
+
+    - name: Set up Apache virtuahHost
+      template:
+        src: "files/httpscript.conf.j2"
+        dest: "/etc/apache2/sites-available/{{ PREFIX }}.{{ SUBDOMAIN}}.conf"
+
+    - name: Enable new site
+      shell: /usr/sbin/a2ensite {{ PREFIX }}.{{ SUBDOMAIN}}.conf
+      notify: Reload Apache
+
+    handlers:
+    - name: Reload Apache
+      service:
+        name: apache2
+        state: reloaded
+
+    - name: Restart Apache
+      service:
+        name: apache2
+        state: restarted
