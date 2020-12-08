@@ -1,3 +1,4 @@
 #! /bin/bash
 /etc/scripts/addarp.sh
+systemctl start firewall.service
 exit 0
